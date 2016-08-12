@@ -6,33 +6,7 @@ import org.apache.commons.lang3.StringUtils.containsIgnoreCase
 
 object MatchingAlgorithms {
 
-  val matchManufAndRestTitle: (Product, Listing) => Boolean = (product, listing) => {
-    containsIgnoreCase(listing.manufacturer, product.manufacturer) &&
-    containsIgnoreCase(listing.title, product.model) &&
-    containsIgnoreCase(listing.title, product.family)
-  }
-
-  val matchManufAndModelInTitle: (Product, Listing) => Boolean = (product, listing) => {
-    containsIgnoreCase(listing.manufacturer, product.manufacturer) &&
-    containsIgnoreCase(listing.title, product.model)
-  }
-
-  val matchManufAndModelInTitleNoForInTitle: (Product, Listing) => Boolean = (product, listing) => {
-    containsIgnoreCase(listing.manufacturer, product.manufacturer) &&
-    containsIgnoreCase(listing.title, product.model) &&
-    !containsIgnoreCase(listing.title, " for ")
-  }
-
-  val matchUsingRegexs: (Product, Listing) => Boolean = (product, listing) => {
-    val patternManufacturer = ("""(?i)\b""" + product.manufacturer + """\b""").r
-    val patternModel = ("""(?i)\b""" + product.model + """\b""").r
-
-    patternManufacturer.findFirstIn(listing.manufacturer).nonEmpty &&
-    patternModel.findFirstIn(listing.title).nonEmpty &&
-    !containsIgnoreCase(listing.title, " for ")
-  }
-
-  val matchUsingRegexsDealWithDashesSpaces: (Product, Listing) => Boolean = (product, listing) => {
+  val matchUsingRegexsDashesSpaces: (Product, Listing) => Boolean = (product, listing) => {
     val patternManufacturer = ("""(?i)\b""" + product.manufacturer + """\b""").r
     val patternModel = ("""(?i)\b""" + product.model + """\b""").r
     val patternModelNoSpaces = ("""(?i)\b""" + product.model.replaceAll("""\s""", "") + """\b""").r

@@ -12,7 +12,7 @@ class MatcherUTest extends FlatSpec with ShouldMatchers with TestFixtures {
     val spark = SparkSession.builder().appName("codingChallenge").master("local").getOrCreate()
     import spark.implicits._
 
-    val algorithm = MatchingAlgorithms.matchUsingRegexsDealWithDashesSpaces
+    val algorithm = MatchingAlgorithms.matchUsingRegexsDashesSpaces
     val listings = Seq(canonPowerShotCAD, genuineSamsungBattery, sonyCybershotListing1, sonyCybershotListing2).toDS()
     val products = Seq(sonyCybershot, samsungTl240).toDS
     val expected = ProductAndMatchingListings(sonyCybershot.product_name, Seq(sonyCybershotListing1, sonyCybershotListing2))
