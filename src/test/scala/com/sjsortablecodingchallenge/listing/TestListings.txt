@@ -1,0 +1,2 @@
+{"title":"Canon PowerShot D10 12.1 MP Waterproof Digital Camera with 3x Optical Image Stabilized Zoom and 2.5-inch LCD (Blue/Silver)","manufacturer":"Canon Canada","currency":"CAD","price":"420.33"}
+{"title":"Genuine Samsung EB575152VU i9000 GalaxyS Battery","manufacturer":"Samsung","currency":"CAD","price":"13.99"}
