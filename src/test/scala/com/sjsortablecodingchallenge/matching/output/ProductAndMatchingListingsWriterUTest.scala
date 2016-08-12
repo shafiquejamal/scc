@@ -1,4 +1,4 @@
-package com.sjsortablecodingchallenge.matching
+package com.sjsortablecodingchallenge.matching.output
 
 import java.io.File.createTempFile
 

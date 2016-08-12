@@ -1,7 +1,8 @@
-package com.sjsortablecodingchallenge.matching
+package com.sjsortablecodingchallenge.matching.output
 
 import java.io.{BufferedWriter, File, FileWriter}
 
+import com.sjsortablecodingchallenge.matching.ProductAndMatchingListings
 import play.api.libs.json.Json
 
 object ProductAndMatchingListingsWriter {
