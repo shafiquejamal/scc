@@ -16,8 +16,8 @@ object ProductsReader {
 
   val dateTimeFormatter = DateTimeFormat.forPattern("yyy-MM-dd'T'k:m:s.SSSZ")
 
-  def toJodaTime = udf[Long, String]( dateTimeFormatter.parseDateTime(_).getMillis )
+  def toJodaTime = udf[Long, String](dateTimeFormatter.parseDateTime(_).getMillis)
 
-  def toEmptyString = udf[String, Any] ( Option(_).map(_.toString).getOrElse("") )
+  def toEmptyString = udf[String, Any](Option(_).map(_.toString).getOrElse(""))
 
 }

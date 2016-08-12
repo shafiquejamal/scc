@@ -8,6 +8,7 @@ object Main {
 
     implicit val spark = SparkSession.builder().appName("codingChallenge").master("local").getOrCreate()
 
+
     spark.stop()
 
   }

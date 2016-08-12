@@ -5,7 +5,7 @@ import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
 
 object ListingsReader {
 
-  def read(df:DataFrame)(implicit spark: SparkSession):Dataset[Listing] = {
+  def read(df: DataFrame)(implicit spark: SparkSession): Dataset[Listing] = {
     import spark.implicits._
     df.withColumn("price", toBigDecimal(df("price"))).as[Listing]
   }
