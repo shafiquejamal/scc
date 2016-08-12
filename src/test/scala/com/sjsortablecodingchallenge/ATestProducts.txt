@@ -1,0 +1,3 @@
+{"product_name":"Fujifilm_FinePix_A170","manufacturer":"Fujifilm","model":"A170","family":"FinePix","announced-date":"2009-07-21T20:00:00.000-04:00"}
+{"product_name":"Casio_QV-5500SX","manufacturer":"Casio","model":"QV-5500SX","announced-date":"1999-07-19T20:00:00.000-04:00"}
+{"product_name":"Samsung_TL240","manufacturer":"Samsung","model":"TL240","announced-date":"2010-01-05T19:00:00.000-05:00"}

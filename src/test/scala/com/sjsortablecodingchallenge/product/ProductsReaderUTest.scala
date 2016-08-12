@@ -10,7 +10,7 @@ class ProductsReaderUTest extends FlatSpec with ShouldMatchers with TestFixtures
 
     implicit val spark = SparkSession.builder().appName("codingChallenge").master("local").getOrCreate()
 
-    val products = ProductsReader.read("src/test/scala/com/sjsortablecodingchallenge/product/TestProducts.txt")
+    val products = ProductsReader.read("src/test/scala/com/sjsortablecodingchallenge/product/UTestTestProducts.txt")
     val expected = Seq(sonyCybershot, samsungTl240)
 
     products.collect() should contain theSameElementsAs expected

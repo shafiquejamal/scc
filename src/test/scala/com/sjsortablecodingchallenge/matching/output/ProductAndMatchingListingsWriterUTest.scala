@@ -9,7 +9,7 @@ class ProductAndMatchingListingsWriterUTest extends FlatSpec with ShouldMatchers
 
   "The writer" should "write the output in the specified format" in new Matches {
 
-    val outputFile = createTempFile("output.json", ".json")
+    val outputFile = createTempFile("output.json", ".txt")
 
     ProductAndMatchingListingsWriter.write(Seq(productAndMatchingListings1, productAndMatchingListings2), outputFile)
 
