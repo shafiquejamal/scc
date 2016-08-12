@@ -1,13 +1,14 @@
 package com.sjsortablecodingchallenge.product
 
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
+import org.apache.spark.sql.{Dataset, SparkSession}
 import org.joda.time.format.DateTimeFormat
 
 object ProductsReader {
 
-  def read(df: DataFrame)(implicit spark: SparkSession): Dataset[Product] = {
+  def read(productsPath: String)(implicit spark: SparkSession): Dataset[Product] = {
     import spark.implicits._
+    val df = spark.read.json(productsPath)
     df
     .withColumn("announcedDate", toJodaTime(df("announced-date"))).drop("announced-date")
     .withColumn("family", toEmptyString(df("family")))

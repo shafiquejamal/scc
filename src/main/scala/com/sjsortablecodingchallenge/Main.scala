@@ -1,5 +1,7 @@
 package com.sjsortablecodingchallenge
 
+import com.sjsortablecodingchallenge.listing.ListingsReader
+import com.sjsortablecodingchallenge.product.ProductsReader
 import org.apache.spark.sql.SparkSession
 
 object Main {
@@ -11,6 +13,9 @@ object Main {
     val productsPath = args(0)
     val listingsPath = args(1)
     val outputPath = args(2)
+
+    val listings = ListingsReader.read(listingsPath)
+    val products = ProductsReader.read(productsPath)
 
     spark.stop()
 
