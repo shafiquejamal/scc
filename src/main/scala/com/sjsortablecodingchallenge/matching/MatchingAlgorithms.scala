@@ -48,5 +48,5 @@ object MatchingAlgorithms {
      patternModelSpaceToDash.findFirstIn(listing.title).nonEmpty) &&
     !containsIgnoreCase(listing.title, " for ")
   }
-  
+
 }
