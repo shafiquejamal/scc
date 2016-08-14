@@ -14,7 +14,7 @@ In a *nix terminal:
 cd /path/to/some/directory
 git clone https://github.com/shafiquejamal/scc sjchallenge
 cd sjchallenge
-sbt run "/full/path/to/products.txt" "/full/path/to/listings.txt" "/full/path/to/non-existent-output-file.txt"
+sbt "run /full/path/to/products.txt /full/path/to/listings.txt /full/path/to/non-existent-output-file.txt"
 ```
 
 The output file will be: /full/path/to/non-existent-output-file.txt
