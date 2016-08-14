@@ -14,12 +14,12 @@ object Main {
 
     implicit val spark = SparkSession.builder().appName("codingChallenge").master("local").getOrCreate()
 
-    val productsPath = args(0)
-    val listingsPath = args(1)
-    val outputPath = new File(args(2))
+    val productsPath = args(1)
+    val listingsPath = args(2)
+    val outputPath = new File(args(3))
 
-    val listings = ListingsReader.read(listingsPath)
     val products = ProductsReader.read(productsPath)
+    val listings = ListingsReader.read(listingsPath)
 
     val matches = Matcher.matchProductsAndListings(products, listings, MatchingAlgorithms.matchUsingRegexsDashesSpaces)
 

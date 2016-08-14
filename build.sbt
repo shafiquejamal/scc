@@ -1,4 +1,4 @@
-name := """apache-spark-2-scala-starter-template"""
+name := """sj-sortable-coding-challenge"""
 
 version := "1.0"
 

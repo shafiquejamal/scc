@@ -14,7 +14,7 @@ class ProductAndMatchingListingsWriterUTest extends FlatSpec with ShouldMatchers
     ProductAndMatchingListingsWriter.write(Seq(productAndMatchingListings1, productAndMatchingListings2), outputFile)
 
     val text = scala.io.Source.fromFile(outputFile).mkString
-    text shouldEqual expectedJsonAsString.drop(1).dropRight(1)
+    text shouldEqual expectedJsonAsString
 
     outputFile.delete()
   }
