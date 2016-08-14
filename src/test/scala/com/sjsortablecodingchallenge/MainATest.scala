@@ -12,7 +12,6 @@ class MainATest extends FlatSpec with ShouldMatchers {
 
     val args =
       Array(
-        "",
         "src/test/scala/com/sjsortablecodingchallenge/ATestProducts.txt",
         "src/test/scala/com/sjsortablecodingchallenge/ATestListings.txt",
         tempOutputFile.getAbsolutePath)
