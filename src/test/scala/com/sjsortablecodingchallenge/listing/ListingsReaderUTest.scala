@@ -13,7 +13,7 @@ class ListingsReaderUTest extends FlatSpec with ShouldMatchers with TestFixtures
     val listings = ListingsReader.read("src/test/scala/com/sjsortablecodingchallenge/listing/UTestListings.txt")
     val expected = Seq(canonPowerShotCAD, genuineSamsungBattery)
 
-    listings.collect() should contain theSameElementsAs expected
+    listings should contain theSameElementsAs expected
 
     spark.stop()
 
