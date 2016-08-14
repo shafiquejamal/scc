@@ -13,21 +13,28 @@ class MatchingAlgorithmsUTest extends FlatSpec with ShouldMatchers with TestFixt
     val matchingListingNoChange = Listing("lastest dsc-W310, brand new", "sOny", "USD", "10.99")
     val matchingListingWithSpace = Listing("lastest dsc W310, brand new", "sOny", "USD", "10.99")
     val matchingListingRemoveDash = Listing("lastest dscW310, brand new", "sOny", "USD", "10.99")
-    val matchingListingButWtthFor = Listing(" for sale! lastest dsc-W310, brand new", "Sony", "USD", "10.99")
-    val nonMatchingModel = Listing("sOnY for sale! lastest dsc-W3101, brand new", "Sony", "KZT", "10.99")
-    val nonMatchingManufacturer = Listing(" for sale! lastest dsc-W310, brand new", "fakeSony", "GBP", "10.99")
+    val matchingListingButWithFor = Listing(" for sale! lastest dsc-W310, brand new", "Sony", "USD", "10.99")
+    val matchingListingButWithForeignFor =
+      Listing(" f" + "\u00FC" + "r sale! lastest dsc-W310, brand new", "Sony", "USD", "10.99")
+    val matchingListingButWithMaybeFor = Listing(" f?r sale! lastest dsc-W310, brand new", "Sony", "USD", "10.99")
+    val nonMatchingModel = Listing("sOnY sale! lastest dsc-W3101, brand new", "Sony", "KZT", "10.99")
+    val nonMatchingManufacturer = Listing(" sale! lastest dsc-W310, brand new", "fakeSony", "GBP", "10.99")
 
     matchUsingRegexsDashesSpaces(sonyCybershot, matchingListingNoChange) shouldBe true
     matchUsingRegexsDashesSpaces(sonyCybershot, matchingListingWithSpace) shouldBe true
     matchUsingRegexsDashesSpaces(sonyCybershot, matchingListingRemoveDash) shouldBe true
-    matchUsingRegexsDashesSpaces(sonyCybershot, matchingListingButWtthFor) shouldBe false
+    matchUsingRegexsDashesSpaces(sonyCybershot, matchingListingButWithFor) shouldBe false
+    matchUsingRegexsDashesSpaces(sonyCybershot, matchingListingButWithForeignFor) shouldBe false
+    matchUsingRegexsDashesSpaces(sonyCybershot, matchingListingButWithMaybeFor) shouldBe false
     matchUsingRegexsDashesSpaces(sonyCybershot, nonMatchingModel) shouldBe false
     matchUsingRegexsDashesSpaces(sonyCybershot, nonMatchingManufacturer) shouldBe false
 
     matchUsingRegexsDashesSpaces(sonyCybershotNoDash, matchingListingNoChange) shouldBe true
     matchUsingRegexsDashesSpaces(sonyCybershotNoDash, matchingListingWithSpace) shouldBe true
     matchUsingRegexsDashesSpaces(sonyCybershotNoDash, matchingListingRemoveDash) shouldBe true
-    matchUsingRegexsDashesSpaces(sonyCybershotNoDash, matchingListingButWtthFor) shouldBe false
+    matchUsingRegexsDashesSpaces(sonyCybershotNoDash, matchingListingButWithFor) shouldBe false
+    matchUsingRegexsDashesSpaces(sonyCybershotNoDash, matchingListingButWithForeignFor) shouldBe false
+    matchUsingRegexsDashesSpaces(sonyCybershotNoDash, matchingListingButWithMaybeFor) shouldBe false
     matchUsingRegexsDashesSpaces(sonyCybershotNoDash, nonMatchingModel) shouldBe false
     matchUsingRegexsDashesSpaces(sonyCybershotNoDash, nonMatchingManufacturer) shouldBe false
   }

@@ -20,7 +20,9 @@ object MatchingAlgorithms {
      patternModelDashIntoSpace.findFirstIn(listing.title).nonEmpty ||
      patternModelRemoveDash.findFirstIn(listing.title).nonEmpty ||
      patternModelSpaceToDash.findFirstIn(listing.title).nonEmpty) &&
-    !containsIgnoreCase(listing.title, " for ")
+    !containsIgnoreCase(listing.title, " for ") &&
+    !containsIgnoreCase(listing.title, " f\u00FCr ") &&
+    !containsIgnoreCase(listing.title, " f?r ")
   }
 
 }
